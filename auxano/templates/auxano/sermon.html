@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- bradcam_area  -->
+    <div class="bradcam_area breadcam_bg_3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Listen to our Sermons</h3>
+                        <small class="text-warning">They are downloadable 😊</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+
+    <!-- about wrap  -->
+    {% comment %} <div class="about_wrap_area about_wrap_area2"> {% endcomment %}
+    <div class="my-5">
+        <div class="container">
+            <h2 class="text-center">To download a sermon, right-click on it and select "save audio as"</h2>
+            <div class="row my-5">
+                {% if audios %}
+                {% for audio in audios %}
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="text-center border border-warning p-4">
+                    {% comment %} <div class="single_service_wrap text-center"> {% endcomment %}
+                        <img src="{% static 'img/svg_icon/controls.png' %}" alt="">
+                        <h3 class="my-3">{{ audio.title }}</h3>
+                        {% comment %} <p>{{ audio.audio.url }}</p> {% endcomment %}
+                        <audio controls>
+                            <source src="{{ audio.audio.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h2>No sermons to show</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!--/ about wrap  -->
+
+
+    <!-- counter  -->
+    <div class="counter_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter" >520</span> <span>+</span> </h3>
+                        <span>Total Projects</span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter" >244</span>  </h3>
+                        <span>On Going Projects</span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter" >95</span> <span>%</span> </h3>
+                        <span>Job Success</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ counter  -->
+
+
+    <!-- financial_solution -->
+    <div class="financial_solution_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="financial_active owl-carousel">
+                        <div class="single_finalcial_wrap">
+                            <h3>Gives you the best Financial <br>
+                                    solution for business</h3>
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best.</p>
+                        </div>
+                        <div class="single_finalcial_wrap">
+                            <h3>Gives you the best Financial <br>
+                                    solution for business</h3>
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best.</p>
+                        </div>
+                        <div class="single_finalcial_wrap">
+                            <h3>Gives you the best Financial <br>
+                                    solution for business</h3>
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="finance_thumb">
+                        <img src="{% static 'img/about/finance.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ financial_solution -->
+
+    <div class="testmonial_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                        <div class="testmonial_active2 owl-carousel">
+                            <div  class="single_slider text-center" data-dot='<img src="{% static "img/testmonial/1.png" %}" alt="#" ' >
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able.</p>
+                                    <div class="author_name text-center">
+                                        <h4>Robert Jonson</h4>
+                                        <span> Business Owner</span>
+                                    </div>
+                                </div>
+                            <div  class="single_slider text-center" data-dot='<img src="{% static "img/testmonial/1.png" %}" alt="#" ' >
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able.</p>
+                                    <div class="author_name text-center">
+                                        <h4>Robert Jonson</h4>
+                                        <span> Business Owner</span>
+                                    </div>
+                                </div>
+                            <div  class="single_slider text-center" data-dot='<img src="{% static "img/testmonial/1.png" %}" alt="#" ' >
+                                    <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able.</p>
+                                    <div class="author_name text-center">
+                                        <h4>Robert Jonson</h4>
+                                        <span> Business Owner</span>
+                                    </div>
+                                </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

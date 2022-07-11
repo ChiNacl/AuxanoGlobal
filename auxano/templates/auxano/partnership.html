@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Partner with us</h3>
+                        <small class="text-warning">Either as a one-time partner or a long-time partner</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+
+    <!-- about wrap  -->
+    {% comment %} <div class="about_wrap_area about_wrap_area2"> {% endcomment %}
+        <div class="container my-5">
+            <div class="row">
+                <p>As a partner with the Ministry in teaching in love the realities of the Kingdom, 
+                    to see the Church come to full stature (the fullness of Christ). Here are a 
+                    few things you should know; </p>
+
+                    <h4><b>WHO IS A PARTNER?</b></h4>
+                    <p>A partner is that one person that understands and aligns himself/herself with the 
+                    vision and mission of Auxano Global, and is committed to giving regularly and 
+                    consistently towards the work of Ministry, while praying for the success of the work.</p>
+                    
+                    <h4><b>PARTNERSHIP BENEFITS:</b><h4>
+                    <ol>
+                        <li class="list_number my-2">As a partner, you affirm that you are "one with the Lord" in every way including 
+                            building His Church, which is your declaration of faith.</li>
+                    
+                        <li class="list_number my-2">One of the greatest blessing of partnership is knowing that through your continual 
+                            giving and prayer, lives are being changed and transformed by the teaching of the 
+                            realities of the Kingdom in love, bringing them to the fullness of Christ.</li>
+                    
+                        <li class="list_number my-2">As you give as a partner,  God will make all grace abound towards you, always 
+                            having all sufficiency in all things, may abound to every good work. 
+                            (2 Cor 9:8).</li>
+                    </ol>
+                    
+                    <em class="text-danger">Note: The Ministry team would reach out to you consistently 
+                        with updates from the Ministry. Also, top partners would have exclusive time out 
+                        with the man of God periodically.</em>
+            </div>
+        </div>
+        {% if messages %}
+        <div class="row mb-4">
+            <div class="col-md-4 offset-4">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <p class="text-center">{{ message }}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span class="text-danger" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}     
+
+    <!--/ about wrap  -->
+    <div class="container">
+        <div class="col-12">
+            <h2 class="contact-title">Let's get your details</h2>
+        </div>
+        <div class="col-lg-8">
+            <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Name'" placeholder="Enter Your Name">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Email Address'" placeholder="Your Email Address">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="location" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Location (City)'" placeholder="Enter Location (City)">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <input class="form-control valid" name="money" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Monthly Financial Commitment (in Naira)'" placeholder="Your Monthly Financial Commitment (in Naira)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
