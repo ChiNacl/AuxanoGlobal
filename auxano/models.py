@@ -23,7 +23,7 @@ class Partnership(models.Model):
     name = models.CharField(max_length=192)
     email = models.EmailField()
     location = models.CharField(max_length=30, default="null")
-    money = models.IntegerField()
+    donation = models.IntegerField()
 
     def __str__(self):
         return self.name
