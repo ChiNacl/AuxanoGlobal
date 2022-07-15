@@ -29,6 +29,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'b&7b7&8_s!a86debwfnrd%im8vc8i+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+
 ALLOWED_HOSTS = ['https://auxanoglobal.herokuapp.com/', 'localhost', '127.0.0.1']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
