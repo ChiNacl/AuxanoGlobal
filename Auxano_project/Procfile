@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn Auxano_project.wsgi --log-file -
