@@ -25,20 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b&7b7&8_s!a86debwfnrd%im8vc8i+t7qf$ec1f!i6*fpn2jit'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-# DEFAULT_FROM_EMAIL = 'chibabebest01@gmail.com'
-# auxano_yahoo_password = 'muhjedrgxcfkbjav'
-# Application definition
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = #sender's email-id
-# EMAIL_HOST_PASSWORD = #password associated with above email-id
+ALLOWED_HOSTS = ['https://auxanoglobal.herokuapp.com/', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'auxano.apps.AuxanoConfig',
