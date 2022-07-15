@@ -39,7 +39,6 @@ ALLOWED_HOSTS = []
 # EMAIL_HOST_PASSWORD = #password associated with above email-id
 
 INSTALLED_APPS = [
-    'feature',
     'auxano.apps.AuxanoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
