@@ -24,12 +24,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'b&7b7&8_s!a86debwfnrd%im8vc8i+t7qf$ec1f!i6*fpn2jit'
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'b&7b7&8_s!a86debwfnrd%im8vc8i+t7qf$ec1f!i6*fpn2jit')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://auxanoglobal.herokuapp.com/', 'localhost', '127.0.0.1']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_REFERRER_POLICY = 'same-origin'
+
 
 INSTALLED_APPS = [
     'auxano.apps.AuxanoConfig',
