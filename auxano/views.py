@@ -7,12 +7,12 @@ from .forms import ContactForm, PartnershipForm
 
 # Create your views here.
 def index(request):
-    return render(request, 'auxano/index.html')
+    return render(request, 'auxano/index.html', {'nav': 'index'})
 
 
 def sermon(request):
     audio = Audio.objects.all()
-    return render(request, 'auxano/sermon.html', {'audios': audio})
+    return render(request, 'auxano/sermon.html', {'audios': audio, 'nav': 'sermon'})
 
 
 def partnership(request):
@@ -23,12 +23,12 @@ def partnership(request):
             messages.add_message(request, messages.SUCCESS, "You have successfully partnered with us")
             return redirect('partnership')
     form = PartnershipForm()
-    context = {'form': form}
+    context = {'form': form, 'nav': 'partnership'}
     return render(request, 'auxano/partnership.html', context)
 
 
 def about(request):
-    return render(request, 'auxano/about.html')
+    return render(request, 'auxano/about.html', {'nav': 'about'})
 
 
 def contact(request):
@@ -39,7 +39,7 @@ def contact(request):
             messages.add_message(request, messages.SUCCESS, "Message successfully sent")
             return redirect('contact')
     form = ContactForm()
-    context = {'form': form}
+    context = {'form': form, 'nav': 'contact'}
     return render(request, 'auxano/contact.html', context)
 
 

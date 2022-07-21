@@ -94,11 +94,11 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="{% url 'index' %}">home</a></li>
-                                            <li><a href="{% url 'sermon' %}">Sermons</a></li>
-                                            <li><a href="{% url 'partnership' %}">Partnership</a></li>
-                                            <li><a href="{% url 'about' %}">About</a></li>
-                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                            <li><a class="{% if nav == 'index' %}active{% endif %}" href="{% url 'index' %}">home</a></li>
+                                            <li><a class="{% if nav == 'sermon' %}active{% endif %}" href="{% url 'sermon' %}">Sermons</a></li>
+                                            <li><a class="{% if nav == 'partnership' %}active{% endif %}" href="{% url 'partnership' %}">Partnership</a></li>
+                                            <li><a class="{% if nav == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a></li>
+                                            <li><a class="{% if nav == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -203,7 +203,7 @@
                                 Address
                             </h3>
                             <ul>
-                                <li>Treasure Island (Zoological garden), Area 1, Abuja.</li>
+                                <li>Soar Plaza, 1st Avenue, Gwarinpa, Abuja.</li>
                                 <li>+234 912 294 9474</li>
                                 <li><a href="#"> docmed@contact.com</a></li>
                             </ul>
