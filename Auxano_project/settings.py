@@ -85,14 +85,26 @@ WSGI_APPLICATION = 'Auxano_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'auxanodb',
+#         'PORT': '5432',
+#         'USER': 'postgres',
+#         'PASSWORD': 'maria',
+#         'HOST': '127.0.0.1',
+#         # 'CONN_MAX_AGE': 500
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'auxanodb',
+        'NAME': 'd7hs8cro6g4qip',
         'PORT': '5432',
-        'USER': 'postgres',
-        'PASSWORD': 'maria',
-        'HOST': '127.0.0.1',
+        'USER': 'fmrgyfwajphuxk',
+        'PASSWORD': '7ba984876ae379f084e2cc8cedce4ec399ba93dda8eb1797a64f7479a042fd6d',
+        'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
         # 'CONN_MAX_AGE': 500
     }
 }
