@@ -93,7 +93,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'maria',
         'HOST': '127.0.0.1',
-        'CONN_MAX_AGE': 500
+        # 'CONN_MAX_AGE': 500
     }
 }
 
@@ -146,3 +146,4 @@ MEDIA_URL = '/media/'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 django_heroku.settings(locals())
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
