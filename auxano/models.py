@@ -10,11 +10,12 @@ class Audio(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=192)
-    phone_number = models.CharField(max_length=12, default="08000000000")
-    email = models.EmailField()
-    subject = models.CharField(max_length=192)
     message = models.TextField()
+    name = models.CharField(max_length=192)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=12, default="08000000000")
+    subject = models.CharField(max_length=192)
+    
 
     def __str__(self):
         return self.name
@@ -22,8 +23,8 @@ class Contact(models.Model):
 
 class Partnership(models.Model):
     name = models.CharField(max_length=192)
-    phone_number = models.CharField(max_length=12, default="08000000000")
     email = models.EmailField()
+    phone_number = models.CharField(max_length=12, default="08000000000")  
     location = models.CharField(max_length=30, default="null")
     donation = models.IntegerField()
 
