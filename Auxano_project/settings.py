@@ -39,13 +39,13 @@ SECURE_REFERRER_POLICY = 'same-origin'
 
 
 INSTALLED_APPS = [
-    'auxano.apps.AuxanoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'auxano',
 ]
 
 MIDDLEWARE = [
