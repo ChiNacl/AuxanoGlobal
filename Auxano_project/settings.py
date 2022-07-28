@@ -96,17 +96,17 @@ WSGI_APPLICATION = 'Auxano_project.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd7hs8cro6g4qip',
-        'PORT': '5432',
-        'USER': 'fmrgyfwajphuxk',
-        'PASSWORD': '7ba984876ae379f084e2cc8cedce4ec399ba93dda8eb1797a64f7479a042fd6d',
-        'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
-        # 'CONN_MAX_AGE': 500
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd7hs8cro6g4qip',
+#         'PORT': '5432',
+#         'USER': 'fmrgyfwajphuxk',
+#         'PASSWORD': '7ba984876ae379f084e2cc8cedce4ec399ba93dda8eb1797a64f7479a042fd6d',
+#         'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
+#     }
+# }
+
 # postgresql-flat-05309
 # db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
 # DATABASES['default'].update(db_from_env)
@@ -163,7 +163,8 @@ django_heroku.settings(locals())
 
 import dj_database_url
 
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # DATABASES['default'].update({'conn_max_age':600, 'ssl_require': True})
-# dj_database_url.config(conn_max_age=600, ssl_require=True)
+
