@@ -41,6 +41,20 @@
                         <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
                             {% csrf_token %}
                             <div class="row">
+                                {% if form.errors %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <div class="alert-message">
+                                    {% for field in form %}
+                                    {% for error in field.errors %}
+                                    <span class="text-sm"><i class="fa fa-times"></i>&nbsp;&nbsp;{{ field.label }}: {{ error|escape }}</span><br>
+                                    {% endfor %}
+                                    {% endfor %}
+
+                                    {% for error in form.non_field_errors %}
+                                    <i class="text-sm">{{ error|escape }}</i><br>
+                                    {% endfor %}
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message Content'" placeholder=" Enter Message Content Here"></textarea>
