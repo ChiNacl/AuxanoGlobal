@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,11 +33,11 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['https://auxanoglobal.herokuapp.com/', '127.0.0.1', 'localhost']
 # ALLOWED_HOSTS = ['*']
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_REFERRER_POLICY = 'same-origin'
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_REFERRER_POLICY = 'same-origin'
 
 
 INSTALLED_APPS = [
@@ -95,16 +96,16 @@ WSGI_APPLICATION = 'Auxano_project.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd7hs8cro6g4qip',
-        'PORT': '5432',
-        'USER': 'fmrgyfwajphuxk',
-        'PASSWORD': '7ba984876ae379f084e2cc8cedce4ec399ba93dda8eb1797a64f7479a042fd6d',
-        'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd7hs8cro6g4qip',
+#         'PORT': '5432',
+#         'USER': 'fmrgyfwajphuxk',
+#         'PASSWORD': '7ba984876ae379f084e2cc8cedce4ec399ba93dda8eb1797a64f7479a042fd6d',
+#         'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
+#     }
+# }
 
 # postgresql-flat-05309
 # db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
@@ -128,6 +129,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASE_URL = os.environ.get("DATABASE_URL", f"sqlite:////{BASE_DIR}/db.sqlite3")
+DATABASES = {}
+DATABASES["default"] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -158,13 +162,6 @@ MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 import django_heroku
 
 django_heroku.settings(locals())
-
-# DATABASES['default'].update({'conn_max_age':600, 'ssl_require': True})
-
