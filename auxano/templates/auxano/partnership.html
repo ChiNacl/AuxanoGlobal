@@ -52,8 +52,8 @@
             </div>
         </div>
         {% if messages %}
-        <div class="row mb-4">
-            <div class="col-md-4 offset-4">
+        <div class="mb-4">
+            <div class="col-md-8 offset-2">
                 {% for message in messages %}
                 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
                     <p class="text-center">{{ message }}</p>
@@ -74,30 +74,47 @@
         <div class="col-lg-8">
             <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
                 {% csrf_token %}
+                <div class="">
+                    {% if form.errors %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div class="alert-message">
+                            {% for field in form %}
+                            {% for error in field.errors %}
+                            <span class="text-sm"><i class="fa fa-times"></i>&nbsp;&nbsp;{{ field.label }}: {{error|escape }}</span><br>
+                            {% endfor %}
+                            {% endfor %}
+
+                            {% for error in form.non_field_errors %}
+                            <i class="text-sm">{{ error|escape }}</i><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Name'" placeholder="Enter Your Name">
+                            <input class="form-control valid" name="{{form.name.name}}" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Name'" placeholder="Enter Your Name">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Email Address'" placeholder="Your Email Address">
+                            <input class="form-control valid" name="{{form.email.name}}" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Email Address'" placeholder="Your Email Address">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="phone" id="phone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder="Enter Your Phone Number">
+                            <input class="form-control valid" name="{{form.phone_number.name}}" id="phone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder="Enter Your Phone Number">
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="form-group">
-                            <input class="form-control" name="location" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Location (City)'" placeholder="Enter Location (City)">
+                            <input class="form-control" name="{{form.location.name}}" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Location (City)'" placeholder="Enter Location (City)">
                         </div>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="money" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Monthly Financial Commitment (in Naira)'" placeholder="Your Monthly Financial Commitment (in Naira)">
+                            <input class="form-control valid" name="{{form.donation.name}}" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Monthly Financial Commitment (in Naira)'" placeholder="Your Monthly Financial Commitment (in Naira)">
                         </div>
                     </div>
                 </div>

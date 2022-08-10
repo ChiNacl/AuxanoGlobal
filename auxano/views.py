@@ -6,6 +6,8 @@ from django.contrib import messages
 from .forms import ContactForm, PartnershipForm
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'auxano/index.html', {'nav': 'index'})
 
@@ -16,13 +18,17 @@ def sermon(request):
 
 
 def partnership(request):
+    form = PartnershipForm()
+
     if request.method == 'POST':
         form = PartnershipForm(request.POST)
+
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, "You have successfully partnered with us")
+            messages.success(
+                request, "You have successfully partnered with us")
             return redirect('partnership')
-    form = PartnershipForm()
+
     context = {'form': form, 'nav': 'partnership'}
     return render(request, 'auxano/partnership.html', context)
 
@@ -32,13 +38,16 @@ def about(request):
 
 
 def contact(request):
+    form = ContactForm()
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
+
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, "Message successfully sent")
+            messages.success(request, "Message successfully sent")
             return redirect('contact')
-    form = ContactForm()
+
     context = {'form': form, 'nav': 'contact'}
     return render(request, 'auxano/contact.html', context)
 
