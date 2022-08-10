@@ -52,12 +52,12 @@
             </div>
         </div>
         {% if messages %}
-        <div class="row mb-4">
-            <div class="col-md-4 offset-4">
+        <div class="row">
+            <div class="mb-4 mx-auto">
                 {% for message in messages %}
                 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    <p class="text-center">{{ message }}</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <p class="text-center m-0 p-2">{{ message }}</p>
+                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
                         <span class="text-danger" aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -72,32 +72,62 @@
             <h2 class="contact-title">Let's get your details</h2>
         </div>
         <div class="col-lg-8">
-            <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
+            <form class="form-contact contact_form needs-validation" action="" method="post" id="contactForm" novalidate>
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Name'" placeholder="Enter Your Name">
+                            <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Name'" placeholder="Enter Your Name" required>
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>   
+                        <div class="invalid-feedback">
+                            Please type in your name.
+                        </div> 
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Email Address'" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>   
+                        <div class="invalid-feedback">
+                            Please type in your email address.
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Email Address'" placeholder="Your Email Address">
+                            <input class="form-control valid" name="phone_number" id="phone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder="Enter Your Phone Number" required>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input class="form-control valid" name="phone_number" id="phone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder="Enter Your Phone Number">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>   
+                        <div class="invalid-feedback">
+                            Please type in your phone number.
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control" name="location" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Location (City)'" placeholder="Enter Location (City)">
+                            <input class="form-control" name="location" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Location (City)'" placeholder="Enter Location (City)" required>
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>   
+                        <div class="invalid-feedback">
+                            Please type in your location.
                         </div>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-group">
-                            <input class="form-control valid" name="donation" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Monthly Financial Commitment (in Naira)'" placeholder="Your Monthly Financial Commitment (in Naira)">
+                            <input class="form-control valid" name="donation" id="money" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Monthly Financial Commitment (in Naira)'" placeholder="Your Monthly Financial Commitment (in Naira)" required>
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>   
+                        <div class="invalid-feedback">
+                            Please type in your donation.
                         </div>
                     </div>
                 </div>
